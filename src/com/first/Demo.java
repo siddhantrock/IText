@@ -2,7 +2,7 @@ package com.first;
 
 import java.awt.Desktop;
 import java.io.File;
-import javax.swing.JOptionPane;
+import java.io.IOException;
 
 public class Demo extends javax.swing.JFrame 
 {
@@ -17,44 +17,39 @@ public class Demo extends javax.swing.JFrame
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         jMenuItem1.setText("Chat History");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItem1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(200, 160, 73, 23);
-
         jPanel1.setComponentPopupMenu(jPopupMenu1);
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(320, 50, 60, 70);
+        jPanel1.setBounds(0, 0, 510, 340);
 
         setBounds(0, 0, 520, 377);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 
+        
         try
         {
           Desktop.getDesktop().open(new File("report.pdf"));
         }
-        catch(Exception e)
+        catch(IOException e)
         {
-            
+            e.printStackTrace();
         }
         
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,7 +87,6 @@ public class Demo extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
